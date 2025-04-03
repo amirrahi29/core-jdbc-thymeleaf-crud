@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layouts/header :: head}"></head>
+<body class="container mt-5">
+<div th:replace="~{layouts/header :: header}"></div>
+
+<form th:action="@{/saveUser}" th:object="${user}" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" th:field="*{name}" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" th:field="*{email}" class="form-control"/>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <br/>
+    <a th:href="@{/}" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+<div th:replace="~{layouts/footer :: footer}"></div>
+</body>
+</html>
